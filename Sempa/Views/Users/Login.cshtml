@@ -1,0 +1,56 @@
+﻿@model Sempa.ViewModel.LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="vh-100">
+            <div class="container-fluid h-custom">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                  <img src="~/assets/img/pexels-benjamin-suter-2225214.jpg"
+                    class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                  <form asp-action="Login" asp-controller="Users" method="post">
+                    <h1 style="color:#0dcaf0" class="text-center font-italic">Login</h1>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      <input type="email" id="form3Example3" name="Email" class="form-control form-control-lg"
+                        placeholder="Enter a valid email address" />
+                     
+                    </div>
+          
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                      <input type="password" id="form3Example4" name="Passward" class="form-control form-control-lg"
+                        placeholder="Enter password" />
+                     
+                    </div>
+                  @if (Model.Message != "")
+                  {
+                    <div class="text-danger"> @Model.Message</div>
+                  }
+
+                    
+          
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                     <div class="form-group">
+                     <input type="submit" value="Login" class="btn btn-primary" />
+                    </div>
+                      <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/Users/Create"
+                          class="link-danger" >Register</a></p>
+                    </div>
+          
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+          </section>
+          
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

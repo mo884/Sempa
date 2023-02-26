@@ -1,0 +1,93 @@
+﻿@model User
+@{
+    ViewData["Title"] = "CreateUser";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+
+@section Images
+{
+    <div  style="background-image:url('@ViewBag.Crr.Image') ; margin:auto; width:100px ; height:100px ; border-radius:50%;background-size:cover; background-position:center; background-repeat:no-repeat ;"></div>
+}
+@section Namess
+{
+    <h5>@ViewBag.Crr.Name</h5>
+}
+
+<div class="Login">
+    <div class="continar">
+
+
+
+        <div class="content1">
+
+           
+            <div class="formcontent">
+                <h2>
+                    <span>Create Account</span>
+                </h2>
+                <form asp-action="CreateUser" method="post" asp-controller="Admin" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <br />
+                    <br />
+                    <input asp-for="Name" placeholder="Please Enter Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <br />
+                    <br />
+
+                    <input asp-for="Email" placeholder="Please Enter Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                    <br />
+                    <br />
+
+                    <input asp-for="Adress" placeholder="Please Enter Adress" />
+                    <span asp-validation-for="Adress"></span>
+                    <br />
+                    <br />
+
+                    <input type="password" asp-for="Password" placeholder="Please Enter Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <br />
+                    <br />
+
+                    <input type="password" asp-for="ConfirmPassword" placeholder="Please EnterCheck Passward" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    <br />
+                    <br />
+                    <br />
+                    <select asp-for="gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <span asp-validation-for="gender" class="text-danger"></span>
+
+                    <br />
+                    <br />
+                    <input type="file" asp-for="Image" accept=".jpg,.jpeg" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                    <br />
+                    <a href="/Users/Login">I have account !</a>
+                    <br />
+                    <button class="bb-b" type="submit">Create</button>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="content1  ">
+            <div class="Image">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+

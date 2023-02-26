@@ -1,0 +1,50 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_MypageLayout.cshtml";
+}
+
+ @foreach (var post in Model.posts)
+{
+                   
+
+         <div class="container mt-5 mb-5">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="d-flex justify-content-between p-2 px-3">
+                            <div class="d-flex flex-row align-items-center"><div  style="background-image:url('@post.user.Image') ; width:50px ; height:50px ; border-radius:50%;background-size:cover; background-position:center; background-repeat:no-repeat ;margin-right:10px"></div> 
+                                <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">@post.user.Name</span> <small class="text-primary">@post.user.Adress</small> </div>
+                            </div>
+                            <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">@post.CreatedTime</small> <a href="/Posts/Edite/@post.ID"><i style="margin-left:15px"  class="fa fa-ellipsis-h"></i></a>  </div>
+                        </div> <img src="@post.Image" class="img-fluid">
+                        <div class="p-2">
+                            <p class="text-justify">@post.Body</p>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-row icons d-flex align-items-center"> <a id="myButton" singleclick="doSomething()" href="/Users/Like/@post.ID"  class="ml-2 btn btn-outline-dark " ><i class="fa fa-heart" ></i></a>@*<a class="ml-2 btn btn-outline-dark" id="myButton" href="/Users/Like/@post.ID"><i class="fa fa-heart" ></i>  </a>*@ </div>
+                                <div class="d-flex flex-row muted-color"> <span style="margin:10px">@post.PostLike Like</span>  <a   style="margin:10px" onClick="alert('Delete Post')" class="btn btn-outline-danger" href="/Posts/Delete/@post.ID" >Delete</a>  <a  style="margin:10px" href="/Comments/Comments/@post.ID" class="ml-2 btn btn-outline-dark">Comment</a> </div>
+                            </div>
+                            <hr>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+
+    <script>
+        function doSomething () {
+  // (A) DISABLE THE BUTTON
+ // document.getElementById("myButton").disabled = true;
+
+ // // (B) DO YOUR PROCESSING HERE
+ //alert("Something is done!");
+
+  // (C) RE-ENABLE AFTER PROCESSING IF YOU WANT
+   document.getElementById("myButton").disabled = false;
+}
+
+
+</script>

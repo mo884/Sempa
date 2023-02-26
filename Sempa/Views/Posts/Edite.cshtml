@@ -1,0 +1,59 @@
+﻿@model Sempa.Models.Postscs
+
+@{
+    ViewData["Title"] = "Edite";
+    Layout = "~/Views/Shared/_MyLayout2.cshtml";
+}
+@section Images
+{
+    <div  style="background-image:url('@ViewBag.Curr.Image') ; margin:auto; width:100px ; height:100px ; border-radius:50%;background-size:cover; background-position:center; background-repeat:no-repeat ;"></div>
+}
+@section Namess
+{
+    <h5>@ViewBag.Curr.Name</h5>
+}
+
+         <div class="container mt-5 mb-5">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="d-flex justify-content-between p-2 px-3">
+<form asp-action="Edite" asp-controller="Posts" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <div class="row">
+        
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ID" />
+
+               
+                <div class="form-group">
+                    <label asp-for="Body" class="control-label"></label>
+                    <textarea asp-for="Body" class="form-control" >
+
+                    </textarea>
+                    <span asp-validation-for="Body" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" type="file" class="form-control btn btn-primary/>
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Edite" class="btn btn-primary" />
+                </div>
+                
+          
+        <
+    </div>
+
+    <div>
+        <a class="btn btn-dark"  asp-action="Communication">Back</a>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+

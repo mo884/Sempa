@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "CreateFlight";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h1>CreateFlight</h1>
+
+@section Images
+    {
+        <div  style="background-image:url('@ViewBag.crr.Image') ; margin:auto; width:100px ; height:100px ; border-radius:50%;background-size:cover; background-position:center; background-repeat:no-repeat ;"></div>
+}
+    @section Namess
+    {
+        <h5>@ViewBag.crr.Name</h5>
+}
+<form class="container" asp-action="CreateFlight" asp-controller="Admin" method="post">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="Name" />
+    <label>Arrive Time</label>
+    <input type="date" class="form-control" placeholder="Arrive Time" name="ArriveTime" />
+    <button class="btn btn-success" type="submit">Save</button>
+</form>

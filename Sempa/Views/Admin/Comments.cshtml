@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Comments";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+     var use =   ViewBag.crr;
+}
+
+<h1>Comments</h1>
+
+
+
+
+@section Images
+{
+    <div  style="background-image:url('@use.Image') ; margin:auto; width:100px ; height:100px ; border-radius:50%;background-size:cover; background-position:center; background-repeat:no-repeat ;"></div>
+}
+@section Namess
+{
+    <h5>@use.Name</h5>
+}
+
+@*
+         <div class="container mt-5 mb-5">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="d-flex justify-content-between p-2 px-3">
+                            <div class="d-flex flex-row align-items-center"><div  style="background-image:url('@ViewBag.com.user.Image') ; width:50px ; height:50px ; border-radius:50%;background-size:cover; background-position:center; background-repeat:no-repeat ;margin-right:10px"></div> 
+                                <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">@ViewBag.com.user.Name</span> <small class="text-primary">@ViewBag.com.user.Adress</small> </div>
+                            </div>
+                            <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">@ViewBag.com.CreatedTime</small> <i class="fa fa-ellipsis-h"></i> </div>
+                        </div> <img src="@ViewBag.com.Image" class="img-fluid">
+                        <div class="p-2">
+                            <p class="text-justify">@ViewBag.com.Body</p>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i>  </div>
+                                <div class="d-flex flex-row muted-color"> <span>@ViewBag.com.PostLike Like</span>  </div>
+                            </div>
+                            <hr>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+*@       
+
+
+
+
+
+
+         <div class="container mt-5 mb-5">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+           @foreach (var comment in ViewBag.com.comments){
+
+               <div class="d-flex justify-content-between p-2 px-3">
+                            <div class="d-flex flex-row align-items-center"><div  style="background-image:url('@comment.user.Image') ; width:50px ; height:50px ; border-radius:50%;background-size:cover; background-position:center; background-repeat:no-repeat ;margin-right:10px"></div> 
+                                <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">@comment.user.Name</span> <small class="text-primary">@comment.user.Adress</small> </div>
+                            </div>
+                            <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">@comment.TimeCreated</small> <i class="fa fa-ellipsis-h"></i> </div>
+                        </div>
+                        <div class="p-2">
+                            <p class="text-justify">@comment.Body</p>
+
+                           
+                        <hr class="my-0" />
+                        <a href="/Admin/Delete/@comment.ID"  style="margin:10px" onClick="alert('Delete Post')" class="btn btn-outline-danger" >Delete</a>
+                       </div> 
+            }
+                    </div> 
+                  </div>
+          
+                   <a style="width:100px" class="btn btn-primary"href="/Comments/Comm/@ViewBag.com.ID"> Write Comment</a>
+               </div>
+              </div>
+           
+
+
+              
+
+
+

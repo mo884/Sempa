@@ -1,0 +1,78 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="Login">
+ <div class="continar">
+  
+
+ 
+        <div class="content1">
+           
+
+                <div class="formcontent">
+                    <h2>
+                        <span>Create Account</span>
+                    </h2>
+                     <form  asp-action="Create" method="post" asp-controller="Users" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                    <input asp-for="Name" placeholder="Please Enter Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+
+
+                    <input asp-for="Email" placeholder="Please Enter Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+
+
+                    <input asp-for="Adress" placeholder="Please Enter Adress" />
+                    <span asp-validation-for="Adress" ></span>
+
+
+                    <input type="password" asp-for="Password" placeholder="Please Enter Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+
+                    <input type="password" asp-for="ConfirmPassword" placeholder="Please EnterCheck Passward" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                    <br />
+                    <select asp-for="gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <span asp-validation-for="gender" class="text-danger"></span>
+
+
+                    <input type="file" asp-for="Image" accept=".jpg,.jpeg" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                    <br />
+                    <a href="/Users/Login">I have account !</a>
+                    <br />
+                    <button class="bb-b"type="submit">Create</button>
+                </form>
+
+                </div>
+   
+        </div>
+        <div class="content1  ">
+            <div class="Image">
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+   
+   
