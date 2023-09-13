@@ -17,7 +17,7 @@ namespace Sempa.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-DG0007O\\MSSQLSERVER01;Database=Sempa;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-DG0007O\\MSSQLSERVER02;Database=SempaTravelling;Integrated Security=True;TrustServerCertificate=True;");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

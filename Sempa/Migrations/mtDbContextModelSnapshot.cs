@@ -52,7 +52,7 @@ namespace Sempa.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("comments");
+                    b.ToTable("comments", (string)null);
                 });
 
             modelBuilder.Entity("Sempa.Models.Flight", b =>
@@ -72,7 +72,7 @@ namespace Sempa.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("flights");
+                    b.ToTable("flights", (string)null);
                 });
 
             modelBuilder.Entity("Sempa.Models.Postscs", b =>
@@ -109,7 +109,7 @@ namespace Sempa.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("posts");
+                    b.ToTable("posts", (string)null);
                 });
 
             modelBuilder.Entity("Sempa.Models.Ticket", b =>
@@ -138,7 +138,7 @@ namespace Sempa.Migrations
 
                     b.HasIndex("FlightID");
 
-                    b.ToTable("tickets");
+                    b.ToTable("tickets", (string)null);
                 });
 
             modelBuilder.Entity("Sempa.Models.User", b =>
@@ -181,7 +181,7 @@ namespace Sempa.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("users");
+                    b.ToTable("users", (string)null);
                 });
 
             modelBuilder.Entity("TicketUser", b =>
@@ -196,7 +196,7 @@ namespace Sempa.Migrations
 
                     b.HasIndex("ticketsID");
 
-                    b.ToTable("TicketUser");
+                    b.ToTable("TicketUser", (string)null);
                 });
 
             modelBuilder.Entity("Sempa.Models.Comments", b =>

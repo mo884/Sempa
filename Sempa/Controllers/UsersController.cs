@@ -152,7 +152,7 @@ namespace Sempa.Controllers
                 log.Message = "Wrong Email or Passward !";
                 return View("Login", log);
             }
-            if(use.Email == "Admin@gmail.com" && use.Password == "ELDEEB2000")
+            if(use.Email == "Admin@gmail.com" && use.Password == "Admin2000")
 
             {
                 HttpContext.Session.SetInt32("UserId", use.ID);
